@@ -22,6 +22,7 @@
         <!-- xml/class configurations-->
 
         <mapping class="org.example.entities.Student" />
+        <mapping class="org.example.entities.Certificate"/>
 
     </session-factory>
 </hibernate-configuration>

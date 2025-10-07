@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.entities.Certificate;
 import org.example.entities.Student;
 import org.example.utils.HibernateUtil;
 import org.hibernate.Session;
@@ -11,12 +12,27 @@ public class Main {
         System.out.println("Hello, World!");
 
         Student student = new Student();
-        student.setName("Bhawarth Padwal");
-        student.setCollege("SIMS");
-        student.setFatherName("Uday Padwal");
+        student.setName("Tanish Padwal");
+        student.setCollege("SIES");
+        student.setFatherName("Sanjay Padwal");
         student.setPhone("1234567890");
         student.setActive(true);
-        student.setAbout("Software Developer");
+        student.setAbout("Artist");
+
+        Certificate certificate = new Certificate();
+        certificate.setTitle("Java Certification");
+        certificate.setAbout("This is a java certificate");
+        certificate.setLink("link");
+        certificate.setStudent(student);
+
+        Certificate certificate1 = new Certificate();
+        certificate1.setTitle("Python Certification");
+        certificate1.setAbout("This is a python certificate");
+        certificate1.setLink("link");
+        certificate1.setStudent(student);
+
+        student.getCertificates().add(certificate);
+        student.getCertificates().add(certificate1);
 
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         // System.out.println(sessionFactory);
